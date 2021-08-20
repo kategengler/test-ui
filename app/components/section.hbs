@@ -1,0 +1,8 @@
+<button type="button" {{on "click" this.toggle}}>Toggle</button>
+<div>
+{{#if this.isOpen}}
+  id: {{yield}}
+{{else}}
+  Collapsed
+{{/if}}
+</div>

@@ -1,0 +1,6 @@
+{{page-title "Thing"}}
+<Section>
+  {{this.model.id}}
+</Section>
+<LinkTo @route="thing" @model="{{add this.model.id -1}}">Previous</LinkTo>
+<LinkTo @route="thing" @model="{{add this.model.id 1}}">Next</LinkTo>
