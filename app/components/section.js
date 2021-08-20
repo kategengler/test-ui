@@ -1,20 +1,20 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
+import { TrackedWeakSet } from 'tracked-built-ins';
 import { action } from '@ember/object';
 
 export default class SectionComponent extends Component {
-  @tracked closed;
+  closed = new TrackedWeakSet();
 
   get isOpen() {
-    return this.closed !== this.args.for;
+    return !this.closed.has(this.args.for);
   }
 
   @action
   toggle() {
-    if (this.isOpen) {
-      this.closed = this.args.for;
+    if (this.closed.has(this.args.for)) {
+      this.closed.delete(this.args.for);
     } else {
-      this.closed = undefined;
+      this.closed.add(this.args.for);
     }
   }
 }
