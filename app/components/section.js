@@ -1,12 +1,10 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+import { useResource } from 'ember-resources';
+import { Toggle } from '../resources/toggle';
 
 export default class SectionComponent extends Component {
-  @tracked isOpen = true;
-
-  @action
-  toggle() {
-    this.isOpen = !this.isOpen;
-  }
+  isOpen = useResource(this, Toggle, () => ({
+    value: true,
+    for: this.args.for,
+  }));
 }

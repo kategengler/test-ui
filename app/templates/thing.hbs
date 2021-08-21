@@ -1,5 +1,5 @@
 {{page-title "Thing"}}
-<Section>
+<Section @for={{this.model}} >
   {{this.model.id}}
 </Section>
 <LinkTo @route="thing" @model="{{add this.model.id -1}}">Previous</LinkTo>

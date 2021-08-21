@@ -1,6 +1,6 @@
-<button type="button" {{on "click" this.toggle}}>Toggle</button>
+<button type="button" {{on "click" this.isOpen.toggle}}>Toggle</button>
 <div>
-{{#if this.isOpen}}
+{{#if this.isOpen.value}}
   id: {{yield}}
 {{else}}
   Collapsed
